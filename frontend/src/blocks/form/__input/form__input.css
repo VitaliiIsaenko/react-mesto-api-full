@@ -1,0 +1,17 @@
+.form__input {
+    margin-top: 10px;
+    height: 27px;
+    border: 0;
+    border-bottom: 1px rgb(0, 0, 0, .2) solid;
+    font-family: Inter, 'Arial', 'Helvetica', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.2;
+    padding: 0;
+    background-color: transparent;
+}
+
+.form__input:focus {
+    outline: 0;
+}

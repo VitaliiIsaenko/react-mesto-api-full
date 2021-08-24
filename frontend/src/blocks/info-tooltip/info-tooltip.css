@@ -1,0 +1,18 @@
+.info-tooltip {
+  position: relative;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 430px;
+  height: 330px;
+  padding: 35px;
+  box-sizing: border-box;
+  z-index: 1;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .info-tooltip {
+    width: 282px;
+    padding: 25px 22px;
+  }
+}

@@ -1,0 +1,23 @@
+.pictures__item-remove {
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    background: .0;
+    background-image: url(../../../images/trash.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    width: 18px;
+    height: 19px;
+    padding: 0;
+    transition: .3s;
+}
+
+.pictures__item-remove:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.pictures__item-remove:focus {
+    outline: 0;
+}

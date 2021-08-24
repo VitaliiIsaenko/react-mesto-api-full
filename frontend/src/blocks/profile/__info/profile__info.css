@@ -1,0 +1,17 @@
+.profile__info {
+    padding: 0 30px;
+    /* 120px: ширина аватарки, 60px: падинг, 150px: кнопка добавить*/
+    max-width: calc(100% - (120px + 60px + 150px));
+}
+
+@media screen and (max-width:767px) {
+    .profile__info {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 26px 0 0;
+        /* 40px: падинги страницы */
+        max-width: calc(100% - 40px);
+    }
+}

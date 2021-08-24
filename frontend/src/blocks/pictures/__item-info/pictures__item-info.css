@@ -1,0 +1,8 @@
+.pictures__item-info {
+    height: 79px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px 0 21px;
+    align-items: center;
+}

@@ -1,0 +1,9 @@
+.pictures__item {
+    width: 282px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
