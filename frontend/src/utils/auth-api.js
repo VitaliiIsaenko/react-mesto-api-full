@@ -42,7 +42,7 @@ class AuthApi {
 }
 
 const authApi = new AuthApi({
-  baseUrl: "http://178.154.207.253/api",
+  baseUrl: "http://frontend.nomoredomains.work/api",
   headers: {
     "Content-Type": "application/json",
   },
