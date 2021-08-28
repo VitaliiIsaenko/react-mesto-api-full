@@ -7,7 +7,7 @@ export default function Card(props) {
   const cardDeleteButtonClassName = `pictures__item-remove ${
     !isOwn && "pictures__item-remove_hidden"
   }`;
-  const isLiked = props.card.likes.some((i) => i._id === currentUser._id);
+  const isLiked = props.card.likes.some((i) => i === currentUser._id);
   const cardLikeButtonClassName = `pictures__item-like ${
     isLiked && "pictures__item-like_active"
   }`;

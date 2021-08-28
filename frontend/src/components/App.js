@@ -50,17 +50,18 @@ function App() {
     authApi
       .getCurrentUser(jwt)
       .then((result) => {
-        setEmail(result.data.email);
+        setEmail(result.email);
         setIsLoggedIn(true);
       })
       .catch((err) => {
+        console.log(err);
         setEmail("");
         setIsLoggedIn(false);
       });
   }, [isLoggedIn]);
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {

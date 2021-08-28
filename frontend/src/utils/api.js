@@ -56,14 +56,14 @@ class Api {
   }
 
   likeCard(id) {
-    return fetch(`${this._baseUrl}/cards/likes/${id}`, {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       headers: this._headers,
       method: "PUT",
     }).then(this._checkResponse);
   }
 
   dislikeCard(id) {
-    return fetch(`${this._baseUrl}/cards/likes/${id}`, {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       headers: this._headers,
       method: "DELETE",
     }).then(this._checkResponse);
@@ -84,10 +84,12 @@ class Api {
     return Promise.reject("API returned an error");
   }
 }
+
 const api = new Api({
-  baseUrl: "http://api.nomoredomains.work",
+  baseUrl: "http://localhost:3000",
   headers: {
     "Content-Type": "application/json",
+    "Authorization": `Bearer ${localStorage.getItem("jwt")}`
   },
 });
 export default api;
