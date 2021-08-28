@@ -17,7 +17,11 @@ require('dotenv').config();
 
 const app = express();
 app.use(helmet());
-app.use(cors({origin:"http://frontend.nomoredomains.work"}))
+app.use(cors({
+  origin:'http://frontend.nomoredomains.work',
+  methods: ['GET', 'PUT', 'POST', 'DELETE'],
+  allowedHeaders: ['Authorization', 'Content-Type']
+}))
 
 app.use(express.json());
 
