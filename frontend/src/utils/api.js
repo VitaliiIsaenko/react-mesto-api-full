@@ -84,9 +84,8 @@ class Api {
     return Promise.reject("API returned an error");
   }
 }
-
 const api = new Api({
-  baseUrl: "http://frontend.nomoredomains.work/api",
+  baseUrl: "http://api.nomoredomains.work",
   headers: {
     "Content-Type": "application/json",
   },
