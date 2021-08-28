@@ -42,7 +42,7 @@ class AuthApi {
 }
 
 const authApi = new AuthApi({
-  baseUrl: "https://auth.nomoreparties.co",
+  baseUrl: "http://178.154.207.253/api",
   headers: {
     "Content-Type": "application/json",
   },
