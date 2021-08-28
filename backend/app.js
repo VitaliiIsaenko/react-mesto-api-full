@@ -10,6 +10,7 @@ const { addUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const exceptionHandler = require('./middlewares/exception-handler');
 const NotFoundError = require('./Errors/not-found-error');
+const { requestLogger, errorLogger } = require('./middlewares/logger'); 
 
 require('dotenv').config();
 
@@ -17,6 +18,8 @@ const app = express();
 app.use(helmet());
 
 app.use(express.json());
+
+app.use(requestLogger); 
 
 app.post('/signin',
   celebrate({
@@ -48,6 +51,8 @@ mongoose.connect(`mongodb://localhost:${DB_PORT}/mestodb`, {
   useFindAndModify: false,
   useUnifiedTopology: true,
 });
+
+app.use(errorLogger);
 
 app.use(errors());
 app.use(exceptionHandler);
