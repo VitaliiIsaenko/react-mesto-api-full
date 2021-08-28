@@ -11,11 +11,13 @@ const auth = require('./middlewares/auth');
 const exceptionHandler = require('./middlewares/exception-handler');
 const NotFoundError = require('./Errors/not-found-error');
 const { requestLogger, errorLogger } = require('./middlewares/logger'); 
+var cors = require('cors');
 
 require('dotenv').config();
 
 const app = express();
 app.use(helmet());
+app.use(cors({origin:"http://frontend.nomoredomains.work"}))
 
 app.use(express.json());
 
