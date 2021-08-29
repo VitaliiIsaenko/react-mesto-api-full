@@ -4,34 +4,34 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { celebrate, Joi, errors } = require('celebrate');
 const helmet = require('helmet');
+const cors = require('cors');
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
 const { addUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const exceptionHandler = require('./middlewares/exception-handler');
 const NotFoundError = require('./Errors/not-found-error');
-const { requestLogger, errorLogger } = require('./middlewares/logger'); 
-var cors = require('cors');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 require('dotenv').config();
 
 const app = express();
 app.use(helmet());
 app.use(cors({
-  origin:['http://frontend.nomoredomains.work', 'http://localhost:3001'],
+  origin: ['http://frontend.nomoredomains.work', 'https://frontend.nomoredomains.work', 'http://localhost:3001'],
   methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Authorization', 'Content-Type']
-}))
+  allowedHeaders: ['Authorization', 'Content-Type'],
+}));
 
 app.use(express.json());
 
-app.use(requestLogger); 
+app.use(requestLogger);
 
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
-}); 
+});
 
 app.post('/signin',
   celebrate({

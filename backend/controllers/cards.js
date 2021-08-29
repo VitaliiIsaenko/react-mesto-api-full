@@ -14,6 +14,12 @@ module.exports.addCard = (req, res, next) => {
 
   Card.create({ name, link, owner: req.user._id })
     .then((c) => res.send(c))
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        throw new NotValidError(err.message);
+      }
+      throw err;
+    })
     .catch(next);
 };
 

@@ -41,6 +41,9 @@ module.exports.addUser = (req, res, next) => {
       name: u.name, about: u.about, avatar: u.avatar, email: u.email,
     }))
     .catch((err) => {
+      if (err.name === 'ValidationError') {
+        throw new NotValidError(err.message);
+      }
       if (err.code === 11000) {
         throw new AlreadyExistsError('User with this email already exists');
       }
@@ -66,6 +69,12 @@ module.exports.updateUser = (req, res, next) => {
       }
       res.send(u);
     })
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        throw new NotValidError(err.message);
+      }
+      throw err;
+    })
     .catch(next);
 };
 
@@ -85,6 +94,12 @@ module.exports.updateUserAvatar = (req, res, next) => {
         throw new NotFoundError('There is no such user');
       }
       res.send(u);
+    })
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        throw new NotValidError(err.message);
+      }
+      throw err;
     })
     .catch(next);
 };
