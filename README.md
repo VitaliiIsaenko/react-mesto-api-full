@@ -5,4 +5,6 @@
 
 
 https://frontend.nomoredomains.work
+https://api.nomoredomains.work
+http://178.154.207.253/sign-in
 178.154.207.253
